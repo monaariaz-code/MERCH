@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merch Studio & Catálogo Exclusivo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f6f7f9',
+              100: '#eceff2',
+              500: '#111827',
+              600: '#0b0f19',
+              accent: '#ff5e3a',
+              accentHover: '#e04a27',
+              gold: '#d4af37'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-nav {
+      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(255, 94, 58, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-white">
+
+  <header class="sticky top-0 z-40 border-b border-neutral-200/80 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Master Wordmark Lockup -->
+      <div class="flex items-center gap-4">
+        <div id="brandLockup" class="flex items-center gap-3.5 cursor-pointer group select-none" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          
+          <!-- Optimized Logo Container with adaptive clean backdrop & border -->
+          <div id="logoWrapper" class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white border border-neutral-200/90 shadow-sm p-1.5 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:border-neutral-900 group-hover:shadow-md">
+            <!-- Direct image display -->
+            <img 
+              id="mainBrandLogo" 
+              src="https://i.postimg.cc/r0R8ScxD/logo.png" 
+              alt="Logo Primordial" 
+              class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              onerror="handleLogoError(this)" 
+            />
+            <!-- Geometric Monogram Fallback if image link is restricted -->
+            <div id="fallbackLogoBadge" class="hidden absolute inset-0 bg-neutral-950 text-white font-black text-lg flex items-center justify-center tracking-tighter">
+              PR
+            </div>
+          </div>
+
+          <!-- Master Typographic Brand Name + Integrated Tagline -->
+          <div class="flex flex-col justify-center">
+            <div class="flex items-center gap-2">
+              <span id="brandNameDisplay" class="text-lg sm:text-xl font-black tracking-[0.2em] uppercase text-neutral-950 leading-none">
+                PRIMORDIAL
+              </span>
+              <span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-neutral-900 text-white leading-none">
+                STUDIO
+              </span>
+            </div>
+            <div class="flex items-center mt-1">
+              <span class="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] text-neutral-500 uppercase">
+                Merch & Apparel Atelier
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-neutral-600">
+        <button onclick="switchCatalogSection('merch')" class="nav-tab active-nav-tab hover:text-neutral-900 transition-colors" id="nav-btn-merch">Catálogo Merch</button>
+        <button onclick="switchCatalogSection('posm')" class="nav-tab hover:text-neutral-900 transition-colors" id="nav-btn-posm">Material POSM / POP</button>
+        <a href="#tecnicas" class="hover:text-neutral-900 transition-colors">Técnicas</a>
+        <a href="#clientes" class="hover:text-neutral-900 transition-colors">Clientes</a>
+        <a href="#cotizador" class="hover:text-neutral-900 transition-colors">Cotizador</a>
+      </nav>
+
+      <!-- CTA & WhatsApp button (Uniform Height, Padding, & Spacing) -->
+      <div class="flex items-center gap-3">
+        <a 
+          href="#cotizador" 
+          class="hidden sm:inline-flex items-center justify-center h-11 px-5 rounded-full text-xs font-bold uppercase tracking-wider bg-neutral-950 hover:bg-neutral-800 text-white transition-all shadow-sm hover:shadow whitespace-nowrap"
+        >
+          Solicitar Muestra
+        </a>
+        <button 
+          onclick="scrollToCotizador()" 
+          class="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-sm hover:shadow whitespace-nowrap"
+        >
+          <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          <span>Cotizar WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-neutral-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-800 text-xs font-bold uppercase tracking-wider border border-neutral-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Catálogo & Producción Premium 2026
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 leading-[1.08]">
+            Merchandising que la gente <span class="underline decoration-neutral-300 decoration-4 underline-offset-8">realmente quiere usar</span>.
+          </h1>
+
+          <p class="text-lg text-neutral-600 max-w-xl leading-relaxed">
+            Diseñamos, producimos y personalizamos prendas y artículos de alta gama para empresas líderes, marcas de creadores y eventos. Olvídate del merch genérico: entregamos calidad de retail.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#catalogo" class="px-7 py-3.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white font-semibold text-sm transition shadow-lg flex items-center gap-2">
+              Explorar Catálogo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#clientes" class="px-6 py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-semibold text-sm transition border border-neutral-200">
+              Ver Clientes & Casos
+            </a>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-neutral-100 w-full">
+            <div>
+              <p class="text-2xl font-black text-neutral-950">+50.000</p>
+              <p class="text-xs text-neutral-500 font-medium">Prendas producidas</p>
+            </div>
+            <div>
+              <p class="text-2xl font-black text-neutral-950">100%</p>
+              <p class="text-xs text-neutral-500 font-medium">Garantía de calidad</p>
+            </div>
+            <div>
+              <p class="text-2xl font-black text-neutral-950">7-12 días</p>
+              <p class="text-xs text-neutral-500 font-medium">Tiempos récord</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Hero Showcase Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto rounded-3xl overflow-hidden bg-gradient-to-tr from-neutral-950 via-neutral-900 to-neutral-800 p-6 sm:p-7 text-white shadow-2xl border border-neutral-800">
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-neutral-700/30 rounded-full blur-3xl"></div>
+            
+            <div class="flex justify-between items-start mb-5 relative z-10">
+              <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-neutral-200 border border-white/10">Colección Destacada</span>
+              <span class="text-xs font-semibold text-neutral-400">Heavyweight 320 GSM</span>
+            </div>
+
+            <!-- Merch Real Photo Card -->
+            <div class="relative group rounded-2xl overflow-hidden border border-neutral-700/80 shadow-2xl bg-neutral-900">
+              <div class="w-full h-64 sm:h-72 overflow-hidden relative">
+                <img 
+                  src="https://i.postimg.cc/9FwhtQZn/442cad80-6402-42bc-897c-6545e16f7903.jpg" 
+                  alt="Hoodie Cuello Redondo" 
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  onerror="this.onerror=null; this.src='https://i.postimg.cc/sXbnVsxY/IMG-9265.jpg';"
+                />
+                <!-- Subtle Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+                
+                <!-- Bottom Tag on image -->
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span class="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md text-[11px] font-bold text-white border border-white/15">
+                    Algodón Perchado 320g
+                  </span>
+                  <span class="px-2.5 py-1 rounded-lg bg-emerald-500/90 backdrop-blur-md text-[11px] font-black text-white">
+                    Premium Fit
+                  </span>
+                </div>
+              </div>
+
+              <!-- Product Info bar under image -->
+              <div class="p-4 bg-neutral-900/95 border-t border-neutral-800">
+                <p class="text-base font-black text-white uppercase tracking-wider">Hoodie Cuello Redondo</p>
+                <p class="text-xs text-neutral-400 mt-0.5">Bordado en alta densidad + DTF textil suave</p>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-neutral-800 flex items-center justify-between text-xs relative z-10">
+              <div>
+                <p class="text-neutral-400">Mínimo de orden:</p>
+                <p class="font-bold text-white text-sm">Desde 15 unidades</p>
+              </div>
+              <button onclick="openModalById('buso-hoodie-unisex')" class="px-4 py-2 rounded-lg bg-white text-neutral-900 font-bold hover:bg-neutral-100 transition text-xs shadow">
+                Ver Ficha Técnica
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="py-14 bg-neutral-100/70 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <h2 class="text-xs uppercase font-extrabold tracking-widest text-neutral-400">Marcas y Colaboraciones</h2>
+        <p class="text-xl font-bold text-neutral-900 mt-1">Empresas y creadores que visten nuestro merch</p>
+      </div>
+
+      <!-- Clients Logos Grid / Customized with real brand clients -->
+      <div id="clientsContainer" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <!-- Client slot 1: Spotify -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-tight text-neutral-950 uppercase group-hover:text-emerald-600 transition-colors">Spotify</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Custom Apparel & Kits</span>
+        </div>
+
+        <!-- Client slot 2: DAVID -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-[0.15em] text-neutral-950 uppercase group-hover:text-neutral-900 transition-colors">DAVID</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Agency Merch</span>
+        </div>
+
+        <!-- Client slot 3: Crimson Lab -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-tight text-neutral-950 uppercase group-hover:text-rose-600 transition-colors">Crimson Lab</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Streetwear & Staff</span>
+        </div>
+
+        <!-- Client slot 4: El Tachi Bar -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-tight text-neutral-950 uppercase group-hover:text-amber-600 transition-colors">El Tachi Bar</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Hospitality & Delantales</span>
+        </div>
+
+        <!-- Client slot 5: Burguerville -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-tight text-neutral-950 uppercase group-hover:text-orange-600 transition-colors">Burguerville</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Gastro Merch & Gorras</span>
+        </div>
+
+        <!-- Client slot 6: Juan Burgers -->
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-sm flex flex-col items-center justify-center text-center group hover:border-neutral-900 hover:shadow-md transition-all duration-300">
+          <span class="text-sm font-black tracking-tight text-neutral-950 uppercase group-hover:text-neutral-950 transition-colors">Juan Burgers</span>
+          <span class="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider mt-1">Dotación & Streetwear</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Primary Section Selector (Merch vs POSM / POP) -->
+      <div class="mb-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-b border-neutral-200 pb-8">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-widest text-neutral-400">Colecciones & Producción 2026</span>
+          <h2 id="catalogMainTitle" class="text-3xl sm:text-4xl font-black text-neutral-950 mt-1">Catálogo de Merch</h2>
+          <p id="catalogMainSubtitle" class="text-sm text-neutral-500 mt-1">Especificaciones técnicas y valores unitarios de referencia (RFP Visibility Andina 2026).</p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-neutral-100 border border-neutral-200 max-w-full overflow-x-auto">
+          <button id="tabMerchBtn" onclick="switchCatalogSection('merch')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition shadow-sm bg-neutral-950 text-white">
+            Prendas & Merch
+          </button>
+          <button id="tabPosmBtn" onclick="switchCatalogSection('posm')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900">
+            Material POSM / POP
+          </button>
+          <button id="tabPremiumBtn" onclick="switchCatalogSection('premium')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900">
+            Regalos Ejecutivos
+          </button>
+          <button id="tabSostenibleBtn" onclick="switchCatalogSection('sostenible')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900">
+            Sostenible (Eco)
+          </button>
+          <button id="tabEventosBtn" onclick="switchCatalogSection('eventos')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900">
+            Eventos
+          </button>
+          <button id="tabBienestarBtn" onclick="switchCatalogSection('bienestar')" class="cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900">
+            Bienestar
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Buttons Sub-bar -->
+      <div id="subFilterContainer" class="flex flex-wrap gap-2 mb-8">
+        <button onclick="filterCatalog('all')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-neutral-900 text-white" data-category="all">Todos los artículos</button>
+        <button onclick="filterCatalog('apparel')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition text-neutral-600 hover:text-neutral-900" data-category="apparel">Textil & Hoodies</button>
+        <button onclick="filterCatalog('caps')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition text-neutral-600 hover:text-neutral-900" data-category="caps">Gorras & Accesorios</button>
+      </div>
+
+      <!-- Catalog Grid -->
+      <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Products will be rendered dynamically by JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tecnicas" class="py-20 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-neutral-400">Acabados Industriales</span>
+        <h2 class="text-3xl sm:text-4xl font-black mt-2">Técnicas de Personalización</h2>
+        <p class="text-sm text-neutral-400 mt-2">Asesoramos cada diseño para elegir la técnica con mejor durabilidad y fidelidad a tu identidad gráfica.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <!-- Technique 1 -->
+        <div class="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700/80 hover:border-neutral-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-neutral-700 flex items-center justify-center font-bold text-sm mb-4">01</div>
+          <h3 class="text-lg font-bold mb-2">Bordado de Alta Densidad</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">Ideal para hoodies pesados, gorras structured y chaquetas. Relieve premium y durabilidad eterna lavado tras lavado.</p>
+        </div>
+
+        <!-- Technique 2 -->
+        <div class="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700/80 hover:border-neutral-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-neutral-700 flex items-center justify-center font-bold text-sm mb-4">02</div>
+          <h3 class="text-lg font-bold mb-2">DTF Textil Ultra Soft</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">Permite degradados, millones de colores y detalles hiperfinos sin textura plástica acartonada. Gran elasticidad.</p>
+        </div>
+
+        <!-- Technique 3 -->
+        <div class="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700/80 hover:border-neutral-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-neutral-700 flex items-center justify-center font-bold text-sm mb-4">03</div>
+          <h3 class="text-lg font-bold mb-2">Serigrafía al Tacto Cero</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">Tintas al agua y descarga que se integran en el hilo del algodón. Estilo streetwear clásico con sensación ligera.</p>
+        </div>
+
+        <!-- Technique 4 -->
+        <div class="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700/80 hover:border-neutral-500 transition">
+          <div class="w-10 h-10 rounded-xl bg-neutral-700 flex items-center justify-center font-bold text-sm mb-4">04</div>
+          <h3 class="text-lg font-bold mb-2">Grabado Láser de Precisión</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed">Aplicado en botellas de acero inoxidable, libretas de cuero y termo mugs. No se borra ni se desgasta con el uso rudo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cotizador" class="py-20 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-neutral-200">
+        <div class="text-center max-w-lg mx-auto mb-10">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-neutral-400">Calculadora Rápida</span>
+          <h2 class="text-3xl font-black text-neutral-950 mt-1">Arma tu Estimado de Merch</h2>
+          <p class="text-xs text-neutral-500 mt-2">Selecciona lo que tienes en mente y envíanos el desglose listo por WhatsApp o Correo.</p>
+        </div>
+
+        <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Product selection -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-neutral-700 mb-2">Producto Principal</label>
+              <select id="quoteProduct" class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-neutral-900 focus:outline-none font-medium">
+                <option value="Camiseta Algodón 180g">Camiseta Algodón 180g ($45.000 COP)</option>
+                <option value="Buso Hoodie Unisex 320g" selected>Buso Hoodie Unisex 320g ($98.000 COP)</option>
+                <option value="Gorra Gabardina Drill">Gorra Gabardina Drill ($38.000 COP)</option>
+              </select>
+            </div>
+
+            <!-- Quantity -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-neutral-700 mb-2">Cantidad Estimada</label>
+              <select id="quoteQuantity" class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-neutral-900 focus:outline-none font-medium">
+                <option value="15 a 30 unidades">15 a 30 unidades (Muestreo / Equipo chico)</option>
+                <option value="50 a 100 unidades" selected>50 a 100 unidades (Lanzamiento / Evento)</option>
+                <option value="150 a 300 unidades">150 a 300 unidades (Producción Mediana)</option>
+                <option value="+500 unidades">+500 unidades (Volumen Corporativo)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Technique -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-neutral-700 mb-2">Técnica Preferida</label>
+              <select id="quoteTechnique" class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-neutral-900 focus:outline-none font-medium">
+                <option value="Bordado">Bordado Premium</option>
+                <option value="DTF / Estampado">DTF Textil / Estampado Full Color</option>
+                <option value="Serigrafía">Serigrafía Tacto Cero</option>
+                <option value="Grabado Láser">Grabado Láser (Rígidos)</option>
+                <option value="Por asesorar">Necesito asesoría según mi logo</option>
+              </select>
+            </div>
+
+            <!-- Estimated Delivery Date -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-neutral-700 mb-2">¿Para cuándo lo necesitas?</label>
+              <select id="quoteTimeline" class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-neutral-900 focus:outline-none font-medium">
+                <option value="Flexible (2-3 semanas)">Flexible (2 a 3 semanas con calma)</option>
+                <option value="Estándar (10-15 días)">Estándar (10 a 15 días)</option>
+                <option value="Urgente (Menos de 7 días)">Urgente (Menos de 7 días)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label class="block text-xs font-bold uppercase text-neutral-700 mb-2">Detalles extras o comentarios de tu marca</label>
+            <textarea id="quoteNotes" rows="3" placeholder="Cuéntanos el color de prenda que buscas, si ya tienes el logo en vectores o si necesitas propuesta de diseño..." class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-neutral-900 focus:outline-none"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-neutral-100">
+            <div class="text-xs text-neutral-500 text-center sm:text-left">
+              Respuesta en menos de 2 horas hábiles con render digital incluido.
+            </div>
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-sm tracking-wide transition shadow-md flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+              Enviar a WhatsApp para Cotizar
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="proceso" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-neutral-400">Metodología</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-neutral-950 mt-1">Cómo Desarrollamos tu Merch</h2>
+        <p class="text-sm text-neutral-500 mt-2">Cero complicaciones. Desde el concepto inicial hasta las cajas en tu oficina o evento.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="relative flex flex-col items-center text-center p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+          <div class="w-12 h-12 rounded-full bg-neutral-950 text-white flex items-center justify-center font-black text-sm mb-4">1</div>
+          <h4 class="font-bold text-neutral-900 mb-2">Selección & Blanks</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Elegimos las siluetas, gramajes de tela y colores acordes al ADN y presupuesto de tu marca.</p>
+        </div>
+
+        <div class="relative flex flex-col items-center text-center p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+          <div class="w-12 h-12 rounded-full bg-neutral-950 text-white flex items-center justify-center font-black text-sm mb-4">2</div>
+          <h4 class="font-bold text-neutral-900 mb-2">Mockup Digital & Muestra</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Presentamos un render 3D / digital con proporciones exactas de estampados y bordados para aprobación.</p>
+        </div>
+
+        <div class="relative flex flex-col items-center text-center p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+          <div class="w-12 h-12 rounded-full bg-neutral-950 text-white flex items-center justify-center font-black text-sm mb-4">3</div>
+          <h4 class="font-bold text-neutral-900 mb-2">Producción & Calidad</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Fabricamos con control exhaustivo de costura, planchado, empaque individual y etiquetado personalizado.</p>
+        </div>
+
+        <div class="relative flex flex-col items-center text-center p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+          <div class="w-12 h-12 rounded-full bg-neutral-950 text-white flex items-center justify-center font-black text-sm mb-4">4</div>
+          <h4 class="font-bold text-neutral-900 mb-2">Entrega & Despacho</h4>
+          <p class="text-xs text-neutral-500 leading-relaxed">Envíos consolidados a tu sede o envíos individuales a los domicilios de tu equipo remoto.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="productModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scrollbar border border-neutral-200">
+      
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 transition">
+        ✕
+      </button>
+
+      <div id="modalContent">
+        <!-- Rendered dynamically via openModalById -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Logo Appearance Modal -->
+  <div id="logoCustomizerModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-neutral-200">
+      <div class="flex items-center justify-between pb-4 border-b border-neutral-100">
+        <div>
+          <h4 class="font-extrabold text-neutral-900 text-sm uppercase tracking-wider">Ajuste de Logo PRIMORDIAL</h4>
+          <p class="text-xs text-neutral-500">Adapta el fondo y visibilidad según tu archivo gráfico.</p>
+        </div>
+        <button onclick="closeLogoCustomizer()" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-xs font-bold text-neutral-600">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-4 py-4 text-xs">
+        <div>
+          <label class="font-bold text-neutral-700 block mb-1.5 uppercase tracking-wide">Fondo del contenedor</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button onclick="setLogoTheme('white')" class="py-2.5 px-3 rounded-xl border border-neutral-300 font-bold bg-white text-neutral-900 shadow-sm hover:border-neutral-900 transition">
+              Blanco Puro
+            </button>
+            <button onclick="setLogoTheme('dark')" class="py-2.5 px-3 rounded-xl border border-neutral-800 font-bold bg-neutral-950 text-white shadow-sm hover:bg-neutral-800 transition">
+              Negro Mate
+            </button>
+            <button onclick="setLogoTheme('neutral')" class="py-2.5 px-3 rounded-xl border border-neutral-200 font-bold bg-neutral-100 text-neutral-700 hover:bg-neutral-200 transition">
+              Gris Suave
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-neutral-700 block mb-1.5 uppercase tracking-wide">URL directa del Logo</label>
+          <input 
+            type="text" 
+            id="customLogoUrlInput" 
+            value="https://i.postimg.cc/r0R8ScxD/logo.png" 
+            class="w-full bg-neutral-50 border border-neutral-200 rounded-xl p-3 text-xs focus:ring-2 focus:ring-neutral-900 focus:outline-none font-mono"
+            placeholder="Pega aquí el enlace directo .png o .svg"
+          />
+          <span class="text-[10px] text-neutral-400 mt-1 block">
+            Puedes cambiar el archivo o usar tu propio enlace directo en cualquier momento.
+          </span>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-neutral-100 flex justify-end gap-2">
+        <button onclick="closeLogoCustomizer()" class="px-4 py-2 rounded-xl text-xs font-semibold text-neutral-500 hover:text-neutral-900">
+          Cerrar
+        </button>
+        <button onclick="applyLogoSettings()" class="px-5 py-2 rounded-xl text-xs font-bold bg-neutral-900 text-white hover:bg-neutral-800">
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-neutral-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 text-xs font-medium border border-neutral-700">
+    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Acción completada con éxito</span>
+  </div>
+
+  <footer class="bg-neutral-950 text-white pt-16 pb-12 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
+        
+        <div class="md:col-span-2 space-y-4">
+          <!-- Footer Unified Brand Lockup -->
+          <div class="flex items-center gap-3.5">
+            <div id="footerLogoWrapper" class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center border border-white/20 shadow overflow-hidden">
+              <img 
+                id="footerBrandLogo"
+                src="https://i.postimg.cc/r0R8ScxD/logo.png" 
+                alt="Primordial Logo Footer" 
+                class="w-full h-full object-contain"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <span class="hidden font-black text-neutral-950 text-sm">PR</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-black tracking-[0.2em] text-base uppercase text-white leading-none">PRIMORDIAL</span>
+              <span class="text-[10px] font-bold tracking-widest text-neutral-400 uppercase mt-1">Studio & Production</span>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 max-w-sm leading-relaxed">
+            Elevando el estándar del merchandising en la región. Productos con fit contemporáneo, materiales prémium y técnicas de personalización duraderas.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-widest text-neutral-300 mb-4">Líneas de Merch</h5>
+          <ul class="text-xs space-y-2.5 text-neutral-400">
+            <li><a href="#catalogo" class="hover:text-white transition">Hoodies & Crewnecks</a></li>
+            <li><a href="#catalogo" class="hover:text-white transition">Camisetas Heavyweight</a></li>
+            <li><a href="#catalogo" class="hover:text-white transition">Gorras Bordadas 3D</a></li>
+            <li><a href="#catalogo" class="hover:text-white transition">Termos y Botellas</a></li>
+            <li><a href="#catalogo" class="hover:text-white transition">Kits para Empleados</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold uppercase tracking-widest text-neutral-300 mb-4">Contacto Directo</h5>
+          <ul class="text-xs space-y-2.5 text-neutral-400">
+            <li>WhatsApp: +57 300 000 0000</li>
+            <li>Email: hola@tumarca.com</li>
+            <li>Taller & Showroom: Disponible bajo cita previa</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+        <p>© 2026 Tu Marca Merch. Todos los derechos reservados.</p>
+        <p>Diseñado con estándares de alta costura y retail merch.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Catalog database structure - Synced with the presentation slides
+    let currentCatalogSection = 'merch';
+
+    // 4. TEXTIL
+    const merchProducts = [
+      {
+        id: 'camiseta-algodon-180g',
+        itemCode: '01. CAMISETA BÁSICA',
+        category: 'apparel',
+        section: 'merch',
+        title: 'Camiseta Algodón 180g',
+        priceValue: '$45,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://i.postimg.cc/LX5kY7wQ/IMG-8969.jpg',
+        especificacion: 'Algodón 100%, cuello redondo, estampado serigrafía / DTF.',
+        medidas: 'Tallas S, M, L, XL.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Serigrafía al agua', 'DTF Textil Ultra Soft', 'Bordado pequeño pecho'],
+        description: 'Camiseta esencial de 180 gramos en 100% algodón peinado suave de alta durabilidad.'
+      },
+      {
+        id: 'buso-hoodie-unisex',
+        itemCode: '02. HOODIE / BUSO',
+        category: 'apparel',
+        section: 'merch',
+        title: 'Buso Hoodie Unisex',
+        priceValue: '$98,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://i.postimg.cc/sXbnVsxY/IMG-9265.jpg',
+        especificacion: 'Algodón perchado 320g, capota y bolsillo canguro.',
+        medidas: 'Tallas S, M, L, XL.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Bordado Alta Densidad', 'DTF Textil', 'Serigrafía Puff'],
+        description: 'Buso con capota de alto gramaje (320g perchado) con interior afelpado térmico y tacto premium.'
+      },
+      {
+        id: 'gorra-gabardina',
+        itemCode: '03. GORRA DRILL',
+        category: 'caps',
+        section: 'merch',
+        title: 'Gorra Gabardina',
+        priceValue: '$38,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://i.postimg.cc/qRKsxnBB/6E2BCCBF-68C7-453B-BEA6-079948B1C683.jpg',
+        especificacion: 'Drill 100% algodón, 6 paneles, bordado frontal alta densidad.',
+        medidas: 'Talla única ajustable.',
+        minOrder: 'Desde 20 unidades',
+        techniques: ['Bordado 3D frontal', 'Bordado lateral / posterior', 'Hebilla metálica'],
+        description: 'Gorra estructurada de 6 paneles elaborada en gabardina / drill 100% algodón peinado.'
+      },
+      {
+        id: 'polo-pique-corporativa',
+        itemCode: '04. POLO PIQUÉ',
+        category: 'apparel',
+        section: 'merch',
+        title: 'Camiseta Polo Piqué',
+        priceValue: '$56,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://i.postimg.cc/wMHm5GbW/IMG-5824.jpg',
+        especificacion: 'Tejido piqué 220g 65/35, cuello y puño tejido reforzado.',
+        medidas: 'Corte Hombre / Dama S a XXL.',
+        minOrder: 'Desde 20 unidades',
+        techniques: ['Bordado pechera', 'Bordado manga'],
+        description: 'Polo corporativa elegante para eventos, equipos comerciales y activaciones de marca.'
+      },
+      {
+        id: 'chaqueta-rompevientos',
+        itemCode: '05. CHAQUETA OUTDOOR',
+        category: 'outerwear',
+        section: 'merch',
+        title: 'Chaqueta Rompevientos Liviana',
+        priceValue: '$115,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Tela antifluido impermeable con forro interno en malla transpirable.',
+        medidas: 'Tallas S a XL.',
+        minOrder: 'Desde 20 unidades',
+        techniques: ['Estampado reflectivo', 'Bordado discreto'],
+        description: 'Chaqueta liviana para eventos y dotación con acabados sellados contra llovizna y viento.'
+      },
+      {
+        id: 'canguro-rinonera',
+        itemCode: '06. CANGURO / RIÑONERA',
+        category: 'caps',
+        section: 'merch',
+        title: 'Canguro Urbano Street',
+        priceValue: '$42,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1575032617751-6ddec2089882?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Lona poliéster antifluido con reata reforzada y chapa de seguridad.',
+        medidas: '28 cm ancho x 14 cm alto.',
+        minOrder: 'Desde 25 unidades',
+        techniques: ['Parche bordado tejido', 'Serigrafía alta densidad'],
+        description: 'Riñonera cruzada de tendencia urbana ideal para festivales, staff de eventos y marcas jóvenes.'
+      },
+      {
+        id: 'delantal-dril-cuero',
+        itemCode: '07. DELANTAL DRILL',
+        category: 'outerwear',
+        section: 'merch',
+        title: 'Delantal Barista & Cocina',
+        priceValue: '$58,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://i.postimg.cc/SKP0M0jk/Captura-de-pantalla-2026-09-23-a-la(s)-2-43-31-p-m.png',
+        especificacion: 'Drill pesado 100% algodón con apliques en ecocuero y herrajes metálicos.',
+        medidas: 'Talla universal 80 x 65 cm.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Bordado pechera', 'Grabado láser en cuero'],
+        description: 'Delantal resistente para gastronomía, baristas, mixología y eventos de hospitalidad.'
+      },
+      {
+        id: 'medias-jacquard-custom',
+        itemCode: '08. MEDIAS CUSTOM',
+        category: 'caps',
+        section: 'merch',
+        title: 'Medias Jacquard de Algodón',
+        priceValue: '$16,500 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=800&q=80',
+        especificacion: '80% algodón peinado, 17% poliamida, 3% elastano tejidas en jacquard.',
+        medidas: 'Media caña / Tobilleras.',
+        minOrder: 'Desde 50 pares',
+        techniques: ['Tejido Jacquard personalizado directo en máquina'],
+        description: 'Medias de moda tejidas hilo a hilo con empaque y etiqueta cartoné personalizada.'
+      }
+    ];
+
+    // MATERIAL POSM / POP
+    const posmProducts = [
+      {
+        id: 'posm-antena',
+        itemCode: '01. FORMATO PEQUEÑO',
+        category: 'posm-counter',
+        section: 'posm',
+        title: 'Antena',
+        priceValue: '$37,500 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Poliestireno full color, doble cara.',
+        medidas: '15 x 10 cm.',
+        minOrder: 'Producción por lote',
+        techniques: ['Impresión directa UV', 'Troquelado digital'],
+        description: 'Dispositivo publicitario para punto de venta en poliestireno impreso a full color doble cara de alta resistencia.'
+      },
+      {
+        id: 'posm-cabezote',
+        itemCode: '02. SEÑALIZACIÓN SUPERIOR',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Cabezote',
+        priceValue: '$720,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Poliestireno calibre 60.',
+        medidas: '1.00 m ancho x 60 cm alto x 20 cm fondo.',
+        minOrder: 'Producción por volumen o unidades',
+        techniques: ['Termoformado', 'Impresión digital alta resolución'],
+        description: 'Cabezote para señalización y visibilidad en góndolas y puntos de venta en poliestireno de alto calibre.'
+      },
+      {
+        id: 'posm-cajero-v1',
+        itemCode: '03. MOSTRADOR / CAJA',
+        category: 'posm-counter',
+        section: 'posm',
+        title: 'Cajero Vendedor V1',
+        priceValue: '$97,500 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cartón colaminado impreso full color.',
+        medidas: '50x20 cm (post) / 8 cm (front) x 30 cm fondo.',
+        minOrder: 'Lotes desde 25 unidades',
+        techniques: ['Impresión offset colaminada', 'Troquelado estructural'],
+        description: 'Organizador y exhibidor de mostrador/caja diseñado para compra por impulso en retail.'
+      },
+      {
+        id: 'posm-cajero-v2',
+        itemCode: '04. MOSTRADOR / CAJA',
+        category: 'posm-counter',
+        section: 'posm',
+        title: 'Cajero Vendedor V2',
+        priceValue: '$125,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Acrílico con poliestireno.',
+        medidas: '50x20 cm (post) / 8 cm (front) x 30 cm fondo.',
+        minOrder: 'Producción por volumen',
+        techniques: ['Corte láser en acrílico', 'Poliestireno termoformado'],
+        description: 'Exhibidor de mostrador premium con mayor resistencia y acabados brillantes para zonas de checkout.'
+      },
+      {
+        id: 'posm-columnas-premium',
+        itemCode: '05. EXHIBICIÓN PREMIUM',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Columnas Premium',
+        priceValue: '$2,750,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Base, entrepaños, logos full color e iluminación.',
+        medidas: '1.80 m alto x 1.10 m ancho x 1.10 m fondo.',
+        minOrder: 'Fabricación a medida',
+        techniques: ['Estructura metálica', 'Iluminación LED integrada', 'MDF laqueado'],
+        description: 'Columna de exhibición 360° para retail de alta gama con sistema de iluminación led incorporado.'
+      },
+      {
+        id: 'posm-cubo',
+        itemCode: '06. PODIO Y EXHIBICIÓN',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Cubo',
+        priceValue: '$110,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cartón colaminado impreso full color.',
+        medidas: '60 x 60 cm x 40 cm alto.',
+        minOrder: 'Desde 10 unidades',
+        techniques: ['Impresión colaminada gran formato', 'Plegado estructural'],
+        description: 'Cubo o podio de piso ligero y resistente para islas de promociones o exhibición en pasillo.'
+      },
+      {
+        id: 'posm-exhibidor-piso-1cara',
+        itemCode: '07. EXHIBIDOR DE PISO',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Exhibidor de piso 1 cara',
+        priceValue: '$980,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Poliestireno en MDF calado, 3 entrepaños.',
+        medidas: '1.60 m alto x 60 cm ancho x 60 cm fondo.',
+        minOrder: 'Producción personalizada',
+        techniques: ['MDF ruteado CNC', 'Poliestireno calado', 'Gráfica laminada'],
+        description: 'Exhibidor de piso robusto de 3 entrepaños para carga media/alta en puntos de venta.'
+      },
+      {
+        id: 'posm-exhibidor-metal-2caras',
+        itemCode: '08. EXHIBIDOR METAL',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Exhibidor de piso metal 2 caras',
+        priceValue: '$1,150,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Estructura metálica y MDF, impresión full color dos caras.',
+        medidas: '1.80 m alto x 60 cm por cara.',
+        minOrder: 'Producción por lote',
+        techniques: ['Pintura electrostática', 'Estructura tubular metálica', 'Gráfica doble cara'],
+        description: 'Exhibidor metálico para alto tráfico con doble frente y máxima durabilidad para tiendas y supermercados.'
+      },
+      {
+        id: 'posm-exhibidor-pta-1cara',
+        itemCode: '09. EXHIBIDOR PTA',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Exhibidor de piso PTA 1 cara',
+        priceValue: '$1,070,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Estructura MDF con impresión full color.',
+        medidas: '1.80 m alto x 60 cm por cara.',
+        minOrder: 'Producción personalizada',
+        techniques: ['MDF estructural', 'Impresión directa o vinilo laminado'],
+        description: 'Mueble exhibidor PTA estilizado para retail farmacéutico, bienestar o tiendas de conveniencia.'
+      },
+      {
+        id: 'posm-exhibidor-pta-2caras',
+        itemCode: '10. EXHIBIDOR PTA 2 CARAS',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Exhibidor de piso PTA 2 caras',
+        priceValue: '$890,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cartón colaminado, 1.60 m alto x 60 cm ancho, con entrepaños.',
+        medidas: '1.60 m alto x 60 cm ancho.',
+        minOrder: 'Producción por tiraje',
+        techniques: ['Cartón corrugado estructural colaminado', 'Troquelado'],
+        description: 'Exhibidor doble vista en cartón de alto calibre con entrepaños reforzados para campañas temporales.'
+      },
+      {
+        id: 'posm-mueble-lego',
+        itemCode: '11. MUEBLE LEGO',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Muebles exhibidores Lego',
+        priceValue: '$1,180,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1585336261026-c222ff4a682f?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Estructura metálica 2 caras MDF, 3 entrepaños.',
+        medidas: '1.70 m alto x 50 cm por cara.',
+        minOrder: 'Producción a pedido',
+        techniques: ['Soldadura y ensamble modular', 'MDF lacado'],
+        description: 'Mueble modular estilo torre con 3 entrepaños por cara para visibilidad de productos de valor.'
+      },
+      {
+        id: 'posm-mueble-premium-1cara',
+        itemCode: '12. MUEBLE PREMIUM 1 CARA',
+        category: 'posm-floor',
+        section: 'posm',
+        title: 'Muebles premium 1 cara',
+        priceValue: '$1,390,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Poliestireno, acrílico blanco, cristal y vinilo laminado.',
+        medidas: '1.60 m alto x 60 cm ancho.',
+        minOrder: 'Producción exclusiva',
+        techniques: ['Vitrina en cristal templado', 'Acrílico termoformado', 'Caja de luz inferior'],
+        description: 'Vitrina de exhibición cerrada con baldas en cristal y acabados en poliestireno y acrílico blanco.'
+      }
+    ];
+
+    // 7. MERCH PREMIUM / REGALOS EJECUTIVOS
+    const premiumProducts = [
+      {
+        id: 'kit-welcome-ejecutivo',
+        itemCode: '01. SET EJECUTIVO',
+        category: 'sets',
+        section: 'premium',
+        title: 'Executive Welcome Box Deluxe',
+        priceValue: '$185,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Caja rígida imantada con termo metálico, libreta premium, bolígrafo pesado y USB metálico.',
+        medidas: 'Caja 30x25x10 cm.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Grabado láser', 'Hot stamping dorado/plateado'],
+        description: 'Kit de alta gama diseñado para juntas directivas, speakers y alianzas comerciales estratégicas.'
+      },
+      {
+        id: 'termo-display-digital',
+        itemCode: '02. TERMOS PREMIUM',
+        category: 'termos',
+        section: 'premium',
+        title: 'Termo Smart con Pantalla LED',
+        priceValue: '$68,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Acero inoxidable 304 doble pared al vacío con sensor táctil de temperatura.',
+        medidas: '500 ml.',
+        minOrder: 'Desde 20 unidades',
+        techniques: ['Grabado láser 360°', 'Pintura mate Soft Touch'],
+        description: 'Termo inteligente que mantiene bebidas calientes 12h y frías 24h con pantalla touch.'
+      },
+      {
+        id: 'libreta-cuero-vegano',
+        itemCode: '03. LIBRETAS PREMIUM',
+        category: 'papeleria',
+        section: 'premium',
+        title: 'Libreta Hardcover Eco-Cuero',
+        priceValue: '$48,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+        especificacion: '192 páginas en papel bond ahuesado 90g con elástico y portaesfero.',
+        medidas: 'A5 (14.5 x 21 cm).',
+        minOrder: 'Desde 25 unidades',
+        techniques: ['Bajo relieve (Deboss)', 'Grabado láser'],
+        description: 'Libreta ejecutiva con textura suave y apertura 180° perfecta para directivos y líderes.'
+      },
+      {
+        id: 'boligrafo-rollerball-metal',
+        itemCode: '04. BOLÍGRAFOS PREMIUM',
+        category: 'papeleria',
+        section: 'premium',
+        title: 'Bolígrafo Rollerball de Peso',
+        priceValue: '$32,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cuerpo metálico lacado en negro mate con clip cromado y tinta gel alemana.',
+        medidas: 'Incluye estuche individual.',
+        minOrder: 'Desde 30 unidades',
+        techniques: ['Grabado láser de alta precisión'],
+        description: 'Escritura fluida con balance equilibrado en la mano para firmas y acuerdos clave.'
+      },
+      {
+        id: 'parlante-madera-bluetooth',
+        itemCode: '05. PARLANTES & TECH',
+        category: 'tech',
+        section: 'premium',
+        title: 'Parlante Bluetooth Acabado Madera',
+        priceValue: '$95,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Bocina de 5W Bluetooth 5.3 con batería de 6 horas y carcasa en bambú natural.',
+        medidas: '8 x 8 x 6 cm.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Grabado láser en madera'],
+        description: 'Regalo tecnológico sostenible con gran resonancia acústica y diseño escandinavo.'
+      },
+      {
+        id: 'set-sommelier-vino',
+        itemCode: '06. SETS DE VINO & GOURMET',
+        category: 'sets',
+        section: 'premium',
+        title: 'Set Sommelier en Estuche Bambú',
+        priceValue: '$88,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
+        especificacion: '4 piezas en acero inoxidable (descorchador, tapón, termómetro y antigoteo) en caja de bambú.',
+        medidas: '18 x 15 x 5 cm.',
+        minOrder: 'Desde 15 unidades',
+        techniques: ['Grabado láser en tapa'],
+        description: 'Regalo corporativo de alta distinción para aniversarios, cierres comerciales o fin de año.'
+      }
+    ];
+
+    // 8. MERCH SOSTENIBLE
+    const sostenibleProducts = [
+      {
+        id: 'tote-bag-algodon-reciclado',
+        itemCode: '01. BOLSAS ECOLÓGICAS',
+        category: 'bolsas',
+        section: 'sostenible',
+        title: 'Tote Bag Algodón Reciclado 240g',
+        priceValue: '$24,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Lienzo 100% recuperado de alta densidad con manijas reforzadas en reata.',
+        medidas: '38 x 42 cm con fuelle de 8 cm.',
+        minOrder: 'Desde 30 unidades',
+        techniques: ['Serigrafía tintas al agua ecológicas', 'DTF textil'],
+        description: 'La bolsa reutilizable definitiva para sustituir bolsas plásticas en ferias y tiendas.'
+      },
+      {
+        id: 'morral-rpet-reciclado',
+        itemCode: '02. BOLSAS & MORRALES RPET',
+        category: 'bolsas',
+        section: 'sostenible',
+        title: 'Morral Plegable en RPET Certificado',
+        priceValue: '$46,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Fabricado a partir de 12 botellas de plástico recicladas (RPET).',
+        medidas: 'Capacidad 16 litros.',
+        minOrder: 'Desde 25 unidades',
+        techniques: ['Estampado eco', 'Marquilla bordada RPET'],
+        description: 'Morral ultraligero que demuestra el compromiso medioambiental de tu organización.'
+      },
+      {
+        id: 'libreta-bagazo-semillas',
+        itemCode: '03. PAPELERÍA RECICLADA',
+        category: 'oficina',
+        section: 'sostenible',
+        title: 'Libreta de Bagazo con Portada Plantable',
+        priceValue: '$29,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80',
+        especificacion: '80 hojas en papel ecológico de caña de azúcar, portada con semillas de huerta para germinar.',
+        medidas: '14 x 20 cm.',
+        minOrder: 'Desde 30 unidades',
+        techniques: ['Impresión en tintas de soya'],
+        description: 'Cero tala de árboles. Una vez terminada la libreta, la tapa se planta y crece una planta.'
+      },
+      {
+        id: 'termo-bambu-acero',
+        itemCode: '04. TERMOS DE BAMBÚ',
+        category: 'reutilizables',
+        section: 'sostenible',
+        title: 'Termo con Carcasa en Bambú Natural',
+        priceValue: '$59,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Interior de acero inoxidable 304 libre de BPA con filtro de infusión para té o frutas.',
+        medidas: '450 ml.',
+        minOrder: 'Desde 20 unidades',
+        techniques: ['Grabado láser quemado en madera'],
+        description: 'Elegancia natural y materiales renovables para el día a día en oficina y viajes.'
+      },
+      {
+        id: 'set-cubiertos-bambu',
+        itemCode: '05. ZERO WASTE KITS',
+        category: 'reutilizables',
+        section: 'sostenible',
+        title: 'Set de Cubiertos Reutilizables en Bambú',
+        priceValue: '$27,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cenedor, cuchara, cuchillo, pitillo y cepillo limpiador en estuche de tela cruda.',
+        medidas: 'Estuche compacto 22 x 6 cm.',
+        minOrder: 'Desde 30 unidades',
+        techniques: ['Grabado en madera de cada cubierto', 'Serigrafía en estuche'],
+        description: 'Kit zero waste para almuerzos de colaboradores y campañas de reducción de plásticos.'
+      }
+    ];
+
+    // 6. EVENTOS & ACTIVACIONES
+    const activacionesProducts = [
+      {
+        id: 'lanyards-escarapelas',
+        itemCode: '01. ESCARAPELAS & LANYARDS',
+        category: 'acreditacion',
+        section: 'eventos',
+        title: 'Lanyards Satinados + Escarapela',
+        priceValue: '$8,500 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Cinta poliéster satinada 2.5 cm sublimada a dos caras full color con mosquetón niquelado.',
+        medidas: '90 cm de longitud total.',
+        minOrder: 'Desde 50 unidades',
+        techniques: ['Sublimación digital fotográfica'],
+        description: 'Identificación oficial para congresos, festivales corporativos y activaciones masivas.'
+      },
+      {
+        id: 'backing-aranita-spider',
+        itemCode: '02. BACKINGS & FOTOMULL',
+        category: 'estructuras',
+        section: 'eventos',
+        title: 'Backing Araña Plegable con Gráfica',
+        priceValue: '$520,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Estructura tubular retráctil con tela sublimada antifluido libre de arrugas y maletín.',
+        medidas: '2.30 m alto x 3.00 m ancho.',
+        minOrder: 'Desde 1 unidad',
+        techniques: ['Sublimación gran formato de alta fidelidad'],
+        description: 'El fondo fotográfico preferido para photocalls, ruedas de prensa y stands comerciales.'
+      },
+      {
+        id: 'roll-up-aluminio',
+        itemCode: '03. ROLL UPS & PENDONES',
+        category: 'estructuras',
+        section: 'eventos',
+        title: 'Roll Up Banner en Aluminio',
+        priceValue: '$145,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Base retráctil reforzada en aluminio con lona banner o polipropileno mate.',
+        medidas: '2.00 m alto x 85 cm / 1.00 m ancho.',
+        minOrder: 'Desde 2 unidades',
+        techniques: ['Impresión digital 1440 DPI sin reflejo'],
+        description: 'Despliegue ultrarrápido en 30 segundos para ferias comerciales y recepciones.'
+      },
+      {
+        id: 'mesa-promocional-popup',
+        itemCode: '04. MESAS PROMOCIONALES',
+        category: 'estructuras',
+        section: 'eventos',
+        title: 'Mesa de Degustación Pop Up',
+        priceValue: '$340,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Mueble liviano desarmable con copete superior, balda interna y bolso de transporte.',
+        medidas: '80 cm ancho x 40 cm fondo x 2.00 m alto total.',
+        minOrder: 'Desde 1 unidad',
+        techniques: ['Adhesivo laminado de alto tráfico'],
+        description: 'Módulo de degustación y registro fácil de transportar en cualquier vehículo.'
+      },
+      {
+        id: 'carpa-plegable-3x3',
+        itemCode: '05. CARPAS INSTITUCIONALES',
+        category: 'estructuras',
+        section: 'eventos',
+        title: 'Carpa Estructural 3x3m Personalizada',
+        priceValue: '$890,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Estructura en acero hexagonal y lona impermeable 100% con toldo sublimado.',
+        medidas: '3.00 x 3.00 m (altura regulable hasta 3.20 m).',
+        minOrder: 'Desde 1 unidad',
+        techniques: ['Sublimación térmica industrial'],
+        description: 'Resistente a intemperie, lluvia y vientos en activaciones al aire libre y eventos deportivos.'
+      }
+    ];
+
+    // 5. BIENESTAR & LIFESTYLE
+    const bienestarProducts = [
+      {
+        id: 'vela-aromatica-soya',
+        itemCode: '01. VELAS & AROMATERAPIA',
+        category: 'relax',
+        section: 'bienestar',
+        title: 'Vela Aromática en Cera de Soya',
+        priceValue: '$34,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Envase de vidrio ámbar con tapa de madera y fragancias botánicas calmantes.',
+        medidas: '200 gramos (40 horas de encendido).',
+        minOrder: 'Desde 25 unidades',
+        techniques: ['Etiqueta hot stamping o serigrafía en vidrio'],
+        description: 'Ambientes relajantes para desconexión laboral y kits de bienestar emocional.'
+      },
+      {
+        id: 'kit-cuidado-personal',
+        itemCode: '02. CUIDADO PERSONAL',
+        category: 'cuidado',
+        section: 'bienestar',
+        title: 'Dúo Crema de Manos + Bálsamo Labial',
+        priceValue: '$28,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Fórmula hidratante con manteca de karité y aceites naturales con registro INVIMA.',
+        medidas: 'Crema 60 ml + Bálsamo 15g.',
+        minOrder: 'Desde 30 kits',
+        techniques: ['Tubos serigrafiados full marca'],
+        description: 'Esenciales de escritorio y bolso para el autocuidado de colaboradores y clientes.'
+      },
+      {
+        id: 'toalla-deportiva-microfibra',
+        itemCode: '03. DEPORTE & YOGA',
+        category: 'deporte',
+        section: 'bienestar',
+        title: 'Toalla Deportiva de Secado Rápido',
+        priceValue: '$26,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Microfibra ultrasuave de alta absorción compactable en funda de red transpirable.',
+        medidas: '80 x 40 cm.',
+        minOrder: 'Desde 30 unidades',
+        techniques: ['Sublimación continua o bordado'],
+        description: 'Ideal para torneos de pádel, maratones corporativas, gimnasio o días de campo.'
+      },
+      {
+        id: 'neceser-canvas-algodon',
+        itemCode: '04. NECESERES & VIAJE',
+        category: 'cuidado',
+        section: 'bienestar',
+        title: 'Neceser Organizador en Lona Pesada',
+        priceValue: '$36,000 COP',
+        taxNote: '+ IVA',
+        image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80',
+        especificacion: 'Lona de algodón crudo 300g con forro interior impermeable y tirador metálico.',
+        medidas: '24 x 15 x 8 cm.',
+        minOrder: 'Desde 25 unidades',
+        techniques: ['Estampado DTF', 'Bordado frontal'],
+        description: 'Estuche multiusos para viaje, artículos de aseo o accesorios de trabajo remoto.'
+      }
+    ];
+
+    // Master dataset map for navigation
+    const categoryMap = {
+      merch: {
+        title: '4. Textil & Dotaciones',
+        subtitle: 'Para eventos, campañas internas y activaciones con calidad de retail.',
+        data: merchProducts,
+        subfilters: [
+          { key: 'all', label: 'Todos los textiles' },
+          { key: 'apparel', label: 'Camisetas, Polos & Hoodies' },
+          { key: 'outerwear', label: 'Chaquetas & Delantales' },
+          { key: 'caps', label: 'Gorras, Riñoneras & Medias' }
+        ]
+      },
+      posm: {
+        title: 'Material POSM / POP',
+        subtitle: 'Especificaciones técnicas y valores unitarios (RFP Visibility Andina 2026).',
+        data: posmProducts,
+        subfilters: [
+          { key: 'all', label: 'Todos los POSM (12)' },
+          { key: 'posm-counter', label: 'Mostrador / Caja / Pequeño' },
+          { key: 'posm-floor', label: 'Exhibidores de Piso & Muebles' }
+        ]
+      },
+      premium: {
+        title: '7. Merch Premium / Regalos Ejecutivos',
+        subtitle: 'Para clientes VIP, directivos, speakers e invitados especiales.',
+        data: premiumProducts,
+        subfilters: [
+          { key: 'all', label: 'Todos los regalos ejecutivos' },
+          { key: 'sets', label: 'Sets & Sommelier' },
+          { key: 'termos', label: 'Termos High-End' },
+          { key: 'papeleria', label: 'Libretas & Plumas' }
+        ]
+      },
+      sostenible: {
+        title: '8. Merch Sostenible (Eco)',
+        subtitle: 'Materiales reciclados, orgánicos y certificados que cuidan el planeta.',
+        data: sostenibleProducts,
+        subfilters: [
+          { key: 'all', label: 'Todo lo sostenible' },
+          { key: 'bolsas', label: 'Totes & Bolsas RPET' },
+          { key: 'reutilizables', label: 'Termos Bambú & Cubiertos' },
+          { key: 'oficina', label: 'Papelería con Semillas' }
+        ]
+      },
+      eventos: {
+        title: '6. Eventos & Activaciones',
+        subtitle: 'Clave para licitaciones y compras corporativas por volumen.',
+        data: activacionesProducts,
+        subfilters: [
+          { key: 'all', label: 'Todo para activaciones' },
+          { key: 'acreditacion', label: 'Lanyards & Escarapelas' },
+          { key: 'estructuras', label: 'Backings, Roll Ups & Carpas' }
+        ]
+      },
+      bienestar: {
+        title: '5. Bienestar & Lifestyle',
+        subtitle: 'Diferencia tu portafolio con experiencias de autocuidado y descanso.',
+        data: bienestarProducts,
+        subfilters: [
+          { key: 'all', label: 'Todo bienestar' },
+          { key: 'relax', label: 'Velas & Aromas' },
+          { key: 'cuidado', label: 'Kits & Neceseres' },
+          { key: 'deporte', label: 'Deporte & Yoga' }
+        ]
+      }
+    };
+
+    // Dynamic section switcher for all categories
+    function switchCatalogSection(sectionKey) {
+      currentCatalogSection = sectionKey;
+      const config = categoryMap[sectionKey];
+      if (!config) return;
+
+      const titleEl = document.getElementById('catalogMainTitle');
+      const subtitleEl = document.getElementById('catalogMainSubtitle');
+      const subFilter = document.getElementById('subFilterContainer');
+      const quoteSelect = document.getElementById('quoteProduct');
+
+      // Update titles
+      if (titleEl) titleEl.textContent = config.title;
+      if (subtitleEl) subtitleEl.textContent = config.subtitle;
+
+      // Update pill buttons visual states
+      document.querySelectorAll('.cat-pill-btn').forEach(btn => {
+        btn.className = 'cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition text-neutral-600 hover:text-neutral-900';
+      });
+      const activeBtnId = {
+        merch: 'tabMerchBtn',
+        posm: 'tabPosmBtn',
+        premium: 'tabPremiumBtn',
+        sostenible: 'tabSostenibleBtn',
+        eventos: 'tabEventosBtn',
+        bienestar: 'tabBienestarBtn'
+      }[sectionKey];
+      if (activeBtnId && document.getElementById(activeBtnId)) {
+        document.getElementById(activeBtnId).className = 'cat-pill-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition shadow-sm bg-neutral-950 text-white';
+      }
+
+      // Update nav link indicators
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.className = 'nav-tab hover:text-neutral-900 transition-colors';
+      });
+      const navBtn = document.getElementById(`nav-btn-${sectionKey}`);
+      if (navBtn) {
+        navBtn.className = 'nav-tab text-neutral-950 font-bold transition-colors border-b-2 border-neutral-900 pb-1';
+      }
+
+      // Render subfilters
+      if (subFilter) {
+        subFilter.innerHTML = config.subfilters.map((sf, idx) => `
+          <button onclick="filterCatalog('${sf.key}')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition ${idx === 0 ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:text-neutral-900'}" data-category="${sf.key}">
+            ${sf.label}
+          </button>
+        `).join('');
+      }
+
+      // Populate quote form options
+      if (quoteSelect) {
+        quoteSelect.innerHTML = '';
+        config.data.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.title;
+          opt.textContent = `${p.title} (${p.priceValue})`;
+          quoteSelect.appendChild(opt);
+        });
+      }
+
+      renderCatalog(config.data);
+    }
+
+    // Function to render product cards matching the slide's card design
+    function renderCatalog(items) {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = '';
+
+      items.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'group bg-white rounded-3xl border border-neutral-200/90 overflow-hidden flex flex-col p-5 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1';
+        
+        card.innerHTML = `
+          <!-- Top Category Tag Pill (Identical to slide) -->
+          <div class="mb-3.5">
+            <span class="inline-block w-full py-1.5 px-3 rounded-lg bg-blue-50/80 border border-blue-100/80 text-[11px] font-bold text-blue-700 tracking-wider">
+              ${product.itemCode}
+            </span>
+          </div>
+
+          <!-- Product Image Container -->
+          <div class="relative w-full h-64 rounded-2xl overflow-hidden bg-neutral-100 mb-5 border border-neutral-100">
+            <img 
+              src="${product.image}" 
+              alt="${product.title}" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+              loading="lazy"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80';"
+            />
+          </div>
+
+          <!-- Product Typography & Details -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-extrabold text-xl text-neutral-900 mb-1 leading-snug tracking-tight">
+                ${product.title}
+              </h3>
+              
+              <!-- Price Badge -->
+              <div class="flex items-baseline gap-1.5 mb-3.5">
+                <span class="text-xl font-black text-emerald-600 tracking-tight">${product.priceValue}</span>
+                <span class="text-xs font-semibold text-neutral-400 uppercase">${product.taxNote}</span>
+              </div>
+
+              <!-- Technical Specs (From Slide) -->
+              <div class="space-y-1.5 text-xs text-neutral-600 mb-4 bg-neutral-50/80 p-3.5 rounded-xl border border-neutral-100">
+                <p><strong class="font-bold text-neutral-900">Especificación:</strong> ${product.especificacion}</p>
+                <p><strong class="font-bold text-neutral-900">Medidas:</strong> ${product.medidas}</p>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="pt-2 flex items-center gap-2">
+              <button 
+                onclick="openModalById('${product.id}')" 
+                class="flex-1 py-2.5 px-3 rounded-xl text-xs font-bold border border-neutral-200 text-neutral-700 hover:bg-neutral-100 transition text-center"
+              >
+                Ficha Técnica
+              </button>
+              <button 
+                onclick="prefillQuote('${product.title}')" 
+                class="flex-1 py-2.5 px-3 rounded-xl text-xs font-bold bg-neutral-950 text-white hover:bg-neutral-800 transition text-center"
+              >
+                Cotizar
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Filter catalog items
+    function filterCatalog(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.category === category) {
+          btn.className = 'filter-btn px-4 py-2 rounded-lg text-xs font-bold transition bg-neutral-900 text-white';
+        } else {
+          btn.className = 'filter-btn px-4 py-2 rounded-lg text-xs font-bold transition text-neutral-600 hover:text-neutral-900';
+        }
+      });
+
+      const activeConfig = categoryMap[currentCatalogSection];
+      if (!activeConfig) return;
+
+      if (category === 'all') {
+        renderCatalog(activeConfig.data);
+      } else {
+        const filtered = activeConfig.data.filter(p => p.category === category);
+        renderCatalog(filtered);
+      }
+    }
+
+    // Modal view handler updated with all category datasets
+    function openModalById(id) {
+      const allItems = [
+        ...merchProducts, 
+        ...posmProducts, 
+        ...premiumProducts, 
+        ...sostenibleProducts, 
+        ...activacionesProducts, 
+        ...bienestarProducts
+      ];
+      const product = allItems.find(p => p.id === id);
+      if (!product) return;
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <div class="space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
+              ${product.itemCode}
+            </span>
+            <span class="text-xs text-neutral-400 font-medium">${product.minOrder}</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-5 items-start">
+            <div class="w-full sm:w-1/2 h-56 rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200">
+              <img 
+                src="${product.image}" 
+                alt="${product.title}" 
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80';"
+              />
+            </div>
+            <div class="w-full sm:w-1/2 flex flex-col justify-center">
+              <h3 class="text-2xl font-black text-neutral-950">${product.title}</h3>
+              <div class="flex items-baseline gap-1.5 mt-1">
+                <span class="text-2xl font-black text-emerald-600">${product.priceValue}</span>
+                <span class="text-xs font-semibold text-neutral-400 uppercase">${product.taxNote}</span>
+              </div>
+              <p class="text-xs text-neutral-500 mt-2 leading-relaxed">${product.description}</p>
+            </div>
+          </div>
+
+          <div class="bg-neutral-50 p-4 rounded-2xl border border-neutral-200 space-y-2 text-xs">
+            <div><strong class="text-neutral-900">Especificación técnica:</strong> <span class="text-neutral-600">${product.especificacion}</span></div>
+            <div><strong class="text-neutral-900">Medidas:</strong> <span class="text-neutral-600">${product.medidas}</span></div>
+            <div><strong class="text-neutral-900">Acabados / Técnicas:</strong> <span class="text-neutral-600">${product.techniques.join(', ')}</span></div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-neutral-500">Muestras y prototipos disponibles</span>
+            <button onclick="prefillQuote('${product.title}')" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs transition">
+              Seleccionar y Cotizar
+            </button>
+          </div>
+        </div>
+      `;
+
+      const modal = document.getElementById('productModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('productModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Scroll helpers
+    function scrollToCotizador() {
+      document.getElementById('cotizador').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function prefillQuote(productTitle) {
+      closeModal();
+      scrollToCotizador();
+      const select = document.getElementById('quoteProduct');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(productTitle.toLowerCase().split(' ')[0])) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      showToast(`Seleccionaste ${productTitle} para cotizar`);
+    }
+
+    // Handle form submit and prepare WhatsApp link
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const product = document.getElementById('quoteProduct').value;
+      const quantity = document.getElementById('quoteQuantity').value;
+      const technique = document.getElementById('quoteTechnique').value;
+      const timeline = document.getElementById('quoteTimeline').value;
+      const notes = document.getElementById('quoteNotes').value || 'Sin notas adicionales';
+
+      const message = `¡Hola! Me gustaría cotizar un proyecto de Merch:%0A%0A` +
+        `• *Producto:* ${encodeURIComponent(product)}%0A` +
+        `• *Cantidad:* ${encodeURIComponent(quantity)}%0A` +
+        `• *Técnica de preferencia:* ${encodeURIComponent(technique)}%0A` +
+        `• *Tiempo esperado:* ${encodeURIComponent(timeline)}%0A` +
+        `• *Detalles:* ${encodeURIComponent(notes)}%0A%0A` +
+        `¿Podríamos revisar muestras y cotización formal?`;
+
+      // Simulating WhatsApp redirect (replace 573000000000 with your real phone)
+      const waUrl = `https://wa.me/573000000000?text=${message}`;
+      
+      showToast('Generando enlace para WhatsApp...');
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+      }, 500);
+    }
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastMessage');
+      text.innerText = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // Logo styling controls & modal handlers
+    function openLogoCustomizer(event) {
+      if (event) event.stopPropagation();
+      const modal = document.getElementById('logoCustomizerModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLogoCustomizer() {
+      const modal = document.getElementById('logoCustomizerModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function setLogoTheme(theme) {
+      const wrapper = document.getElementById('logoWrapper');
+      const footerWrapper = document.getElementById('footerLogoWrapper');
+      
+      if (theme === 'white') {
+        wrapper.className = 'relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white border border-neutral-200/90 shadow-sm p-1.5 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:border-neutral-900 group-hover:shadow-md';
+        if (footerWrapper) footerWrapper.className = 'w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center border border-white/20 shadow overflow-hidden';
+        showToast('Fondo blanco aplicado');
+      } else if (theme === 'dark') {
+        wrapper.className = 'relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-neutral-950 border border-neutral-800 shadow-sm p-1.5 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:border-neutral-500 group-hover:shadow-md';
+        if (footerWrapper) footerWrapper.className = 'w-10 h-10 rounded-xl bg-neutral-900 p-1 flex items-center justify-center border border-neutral-800 shadow overflow-hidden';
+        showToast('Fondo negro mate aplicado');
+      } else if (theme === 'neutral') {
+        wrapper.className = 'relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-neutral-100 border border-neutral-300/80 shadow-sm p-1.5 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:border-neutral-900 group-hover:shadow-md';
+        if (footerWrapper) footerWrapper.className = 'w-10 h-10 rounded-xl bg-neutral-800 p-1 flex items-center justify-center border border-neutral-700 shadow overflow-hidden';
+        showToast('Fondo gris aplicado');
+      }
+    }
+
+    function applyLogoSettings() {
+      const newUrl = document.getElementById('customLogoUrlInput').value.trim();
+      if (newUrl) {
+        const headerImg = document.getElementById('mainBrandLogo');
+        const footerImg = document.getElementById('footerBrandLogo');
+        if (headerImg) headerImg.src = newUrl;
+        if (footerImg) footerImg.src = newUrl;
+        showToast('Enlace de logo actualizado');
+      }
+      closeLogoCustomizer();
+    }
+
+    // Logo image error fallback handler
+    function handleLogoError(imgEl) {
+      // In case Postimages direct link uses a custom name or has hotlink restrictions,
+      // fallback smoothly to emblem badge
+      imgEl.style.display = 'none';
+      const fallback = document.getElementById('fallbackLogoBadge');
+      if (fallback) {
+        fallback.classList.remove('hidden');
+        fallback.classList.add('flex');
+      }
+    }
+
+    // Initialize on window load
+    window.addEventListener('DOMContentLoaded', () => {
+      switchCatalogSection('merch');
+
+      // Close modal on click outside
+      window.addEventListener('click', (e) => {
+        const modal = document.getElementById('productModal');
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
